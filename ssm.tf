@@ -21,3 +21,15 @@ resource "aws_ssm_parameter" "omni-bio-rad-notification-sns-arn" {
     Environment = var.env
   }
 }
+
+resource "aws_ssm_parameter" "omni-bio-rad-api-key-arn" {
+  name  = "/omni/${var.env}/bio-rad/api-key"
+  type  = "SecureString"
+  value = var.api_key
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
