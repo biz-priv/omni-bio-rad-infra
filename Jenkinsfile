@@ -23,17 +23,17 @@ pipeline{
 				script{
 				 if("${env.ENVIRONMENT}".contains("dev")){
 					withAWS(credentials: 'omni-aws-creds'){
-					sh "terraform init -backend-config 'bucket=omni-terraform-states' -backend-config 'region=us-east-1' -backend-config 'key=bio-rad/dev/terraform.tfstate' -migrate-state"
+					sh "terraform init -backend-config 'bucket=omni-terraform-states' -backend-config 'region=us-east-1' -backend-config 'key=omni-bio-rad-infra/dev/terraform.tfstate' -migrate-state"
 				}
 				 }
 				else if("${env.ENVIRONMENT}".contains("prod")){
 					withAWS(credentials: 'omni-aws-creds'){
-					sh "terraform init -backend-config 'bucket=omni-terraform-states' -backend-config 'region=us-east-1' -backend-config 'key=bio-rad/prod/terraform.tfstate' -migrate-state"
+					sh "terraform init -backend-config 'bucket=omni-terraform-states' -backend-config 'region=us-east-1' -backend-config 'key=omni-bio-rad-infra/prod/terraform.tfstate' -migrate-state"
 				} 
 				}
 				else if("${env.ENVIRONMENT}".contains("stg")){
 					withAWS(credentials: 'omni-aws-creds'){
-					sh "terraform init -backend-config 'bucket=omni-terraform-states' -backend-config 'region=us-east-1' -backend-config 'key=bio-rad/staging/terraform.tfstate' -migrate-state"
+					sh "terraform init -backend-config 'bucket=omni-terraform-states' -backend-config 'region=us-east-1' -backend-config 'key=omni-bio-rad-infra/staging/terraform.tfstate' -migrate-state"
 				} 
 				}
 	

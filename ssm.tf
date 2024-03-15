@@ -4,8 +4,8 @@ resource "aws_ssm_parameter" "omni-bio-rad-logs-table" {
   value = aws_dynamodb_table.omni-bio-rad-logs-table.name
 
   tags = {
-    Application = "Bio Rad Api Services"
-    CreatedBy   = "BizCloudExperts"
+    Application = var.application
+    CreatedBy   = var.created_by
     Environment = var.env
   }
 }
@@ -16,8 +16,8 @@ resource "aws_ssm_parameter" "omni-bio-rad-notification-sns-arn" {
   value = aws_sns_topic.omni-bio-rad-error-notification.arn
 
   tags = {
-    Application = "Bio Rad Api Services"
-    CreatedBy   = "BizCloudExperts"
+    Application = var.application
+    CreatedBy   = var.created_by
     Environment = var.env
   }
 }

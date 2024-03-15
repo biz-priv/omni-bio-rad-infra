@@ -32,8 +32,8 @@ resource "aws_dynamodb_table" "omni-bio-rad-logs-table" {
   }
 
   tags = {
-    Application = "Omni Bio Rad Api Services"
-    CreatedBy   = "BizCloudExperts"
+    Application = var.application
+    CreatedBy   = var.created_by
     Environment = var.env
   }
 }

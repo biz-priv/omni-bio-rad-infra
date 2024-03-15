@@ -1,5 +1,11 @@
 resource "aws_sns_topic" "omni-bio-rad-error-notification" {
   name = "omni-bio-rad-error-notification-${var.env}"
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
 }
 
 resource "aws_sns_topic_subscription" "omni_bio_rad_emails_subscription" {

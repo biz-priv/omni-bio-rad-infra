@@ -18,6 +18,10 @@ variable "created_by" {
   nullable = false
 }
 
+variable "application" {
+  type     = string
+  nullable = false
+}
 
 variable "omni_bio_rad_notification_emails" {
   type     = list(string)
