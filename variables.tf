@@ -32,3 +32,28 @@ variable "api_key" {
   type     = string
   nullable = false
 }
+
+variable "lbn_send_endpoint" {
+  type     = string
+  nullable = false
+}
+
+variable "lbn_token_endpoint" {
+  type     = string
+  nullable = false
+}
+
+variable "lbn_token_endpoint_request_username" {
+  type     = string
+  nullable = false
+}
+
+variable "lbn_token_endpoint_request_password" {
+  type     = string
+  nullable = false
+}
+
+variable "lbn_token_endpoint_request_authorization" {
+  type     = string
+  nullable = false
+}
