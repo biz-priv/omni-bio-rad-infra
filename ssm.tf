@@ -33,3 +33,63 @@ resource "aws_ssm_parameter" "omni-bio-rad-api-key-arn" {
     Environment = var.env
   }
 }
+
+resource "aws_ssm_parameter" "omni-bio-rad-lbn-send-endpoint" {
+  name  = "/omni/${var.env}/bio-rad/lbn-send-endpoint"
+  type  = "String"
+  value = var.lbn_send_endpoint
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint" {
+  name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint"
+  type  = "String"
+  value = var.lbn_token_endpoint
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-username" {
+  name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/username"
+  type  = "String"
+  value = var.lbn_token_endpoint_request_username
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-password" {
+  name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/password"
+  type  = "SecureString"
+  value = var.lbn_token_endpoint_request_password
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-authorization" {
+  name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/authorization"
+  type  = "SecureString"
+  value = var.lbn_token_endpoint_request_authorization
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
