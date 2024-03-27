@@ -93,3 +93,15 @@ resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-authorization" {
     Environment = var.env
   }
 }
+
+resource "aws_ssm_parameter" "omni-bio-rad-update-source-db-endpoint" {
+  name  = "/omni/${var.env}/bio-rad/update-source-db-endpoint"
+  type  = "String"
+  value = var.update_source_db_endpoint
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
