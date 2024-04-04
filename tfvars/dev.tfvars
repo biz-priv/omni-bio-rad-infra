@@ -3,7 +3,7 @@ region                                        = "us-east-1"
 aws_account_number                            = "332281781429"
 created_by                                    = "BizCloudExperts"
 application                                   = "Omni Bio Rad Api Services"
-omni_bio_rad_notification_emails              = ["omnidev@bizcloudexperts.com"]
+omni_bio_rad_notification_emails              = ["madhava.matta@bizcloudexperts.com"]
 api_key                                       = "Rf2hL9s4Gp7qW8xRf2hL9s4Gp7qW8x12"
 lbn_send_endpoint                             = "https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1/LbnFreightOrderForSubcontracting"
 lbn_token_endpoint                            = "https://oauthasservices-a46089868.hana.ondemand.com/oauth2/api/v1/token?grant_type=client_credentials"
