@@ -14,20 +14,9 @@ resource "aws_dynamodb_table" "omni-bio-rad-logs-table" {
     type = "S"
   }
 
-  attribute {
-    name = "Housebill"
-    type = "S"
-  }
-
   global_secondary_index {
     name            = "FreightOrderId-Index"
     hash_key        = "FreightOrderId"
-    projection_type = "ALL"
-  }
-
-  global_secondary_index {
-    name            = "Housebill-Index"
-    hash_key        = "Housebill"
     projection_type = "ALL"
   }
 
