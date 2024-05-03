@@ -2,7 +2,7 @@ resource "aws_dynamodb_table" "omni-bio-rad-logs-table" {
   name             = "omni-bio-rad-logs-${var.env}"
   billing_mode     = "PAY_PER_REQUEST"
   hash_key         = "Id"
-  stream_enabled   = false
+  stream_enabled   = true
   stream_view_type = "NEW_AND_OLD_IMAGES"
 
   attribute {
