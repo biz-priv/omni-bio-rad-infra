@@ -106,7 +106,7 @@ resource "aws_ssm_parameter" "omni-bio-rad-update-source-db-endpoint" {
   }
 }
 
-resource "aws_ssm_parameter" "omni-wt-rt-shipment-ocean-import-streamArn" {
+resource "aws_ssm_parameter" "omni-bio-rad-logs-table-streamArn" {
   name  = "/omni/${var.env}/bio-rad/ddb.streamArn"
   type  = "SecureString"
   value = aws_dynamodb_table.omni-bio-rad-logs-table.stream_arn
