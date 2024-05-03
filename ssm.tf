@@ -105,3 +105,15 @@ resource "aws_ssm_parameter" "omni-bio-rad-update-source-db-endpoint" {
     Environment = var.env
   }
 }
+
+resource "aws_ssm_parameter" "omni-bio-rad-logs-table-streamArn" {
+  name  = "/omni/${var.env}/bio-rad/ddb.streamArn"
+  type  = "SecureString"
+  value = aws_dynamodb_table.omni-bio-rad-logs-table.stream_arn
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
