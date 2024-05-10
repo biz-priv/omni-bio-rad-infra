@@ -62,3 +62,18 @@ variable "update_source_db_endpoint" {
   type     = string
   nullable = false
 }
+
+variable "omni_wt_get_document_api_url" {
+  type     = string
+  nullable = false
+}
+
+variable "omni_wt_add_document_api_url" {
+  type     = string
+  nullable = false
+}
+
+variable "omni_wt_create_shipment_api_url" {
+  type     = string
+  nullable = false
+}
