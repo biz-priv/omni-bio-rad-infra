@@ -117,3 +117,39 @@ resource "aws_ssm_parameter" "omni-bio-rad-logs-table-streamArn" {
     Environment = var.env
   }
 }
+
+resource "aws_ssm_parameter" "omni-wt-get-document-api-url" {
+  name  = "/omni/${var.env}/bio-rad/wt/get-document/api.url"
+  type  = "String"
+  value = var.omni_wt_get_document_api_url
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-wt-add-document-api-url" {
+  name  = "/omni/${var.env}/bio-rad/wt/add-document/api.url"
+  type  = "String"
+  value = var.omni_wt_add_document_api_url
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-wt-create-shipment-api-url" {
+  name  = "/omni/${var.env}/bio-rad/wt/create-shipment/api.url"
+  type  = "String"
+  value = var.omni_wt_create_shipment_api_url
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
