@@ -14,3 +14,4 @@ update_source_db_endpoint                     = "https://dev-api.omnilogistics.c
 omni_wt_get_document_api_url                  = "https://websli.omnilogistics.com/wtTest/getwtdoc/v1/json/8495facb3355d4aab0197eadf1f484"
 omni_wt_add_document_api_url                  = "https://wttest.omnilogistics.com/WTKServices/shipments.asmx"
 omni_wt_create_shipment_api_url               = "https://wttest.omnilogistics.com/WTKServices/AirtrakShipment.asmx"
+omni_bio_rad_bill_to_numbers                  = "8061,8062"
