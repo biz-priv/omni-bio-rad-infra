@@ -181,7 +181,7 @@ resource "aws_ssm_parameter" "omni-send-order-events-sqs-url" {
 resource "aws_ssm_parameter" "omni-send-order-events-bill-to-number" {
   name  = "/omni/${var.env}/bio-rad/bill-to/numbers"
   type  = "String"
-  value = var.application
+  value = var.omni_bio_rad_bill_to_numbers
 
   tags = {
     Application = var.application
