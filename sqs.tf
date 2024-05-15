@@ -7,6 +7,37 @@ resource "aws_sqs_queue" "omni_bio_rad_send_order_events_sqs" {
   receive_wait_time_seconds = 0
 }
 
+data "aws_iam_policy_document" "omni_bio_rad_send_order_events_queue_policy" {
+  policy_id = "${aws_sqs_queue.omni_bio_rad_send_order_events_sqs.arn}/SQSDefaultPolicy"
+  statement {
+    sid    = "Allow SNS publish to SQS"
+    effect = "Allow"
+    principals {
+      type        = "AWS"
+      identifiers = ["*"]
+    }
+    actions = [
+      "SQS:SendMessage",
+    ]
+    resources = [
+      aws_sqs_queue.omni_bio_rad_send_order_events_sqs.arn
+    ]
+    condition {
+      test     = "ArnEquals"
+      variable = "aws:SourceArn"
+      values = [
+        "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-shipment-milestone-${var.env}",
+        "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-apar-failure-${var.env}"
+      ]
+    }
+  }
+}
+
+resource "aws_sqs_queue_policy" "omni_bio_rad_send_order_events_queue_policy" {
+  queue_url = aws_sqs_queue.omni_bio_rad_send_order_events_sqs.id
+  policy    = data.aws_iam_policy_document.omni_bio_rad_send_order_events_queue_policy.json
+}
+
 resource "aws_sns_topic_subscription" "omni_shipment_milestone_stream_sns_subscription" {
   topic_arn = "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-shipment-milestone-${var.env}"
   protocol  = "sqs"
