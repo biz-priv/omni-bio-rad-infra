@@ -77,3 +77,8 @@ variable "omni_wt_create_shipment_api_url" {
   type     = string
   nullable = false
 }
+
+variable "omni_bio_rad_bill_to_numbers" {
+  type     = string
+  nullable = false
+}
