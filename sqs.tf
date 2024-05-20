@@ -1,10 +1,10 @@
 resource "aws_sqs_queue" "omni_bio_rad_send_order_events_sqs" {
-  name                      = "omni-bio-rad-send-order-events-${var.env}"
-  delay_seconds             = 0
-  max_message_size          = 262144
-  message_retention_seconds = 345600
+  name                       = "omni-bio-rad-send-order-events-${var.env}"
+  delay_seconds              = 0
+  max_message_size           = 262144
+  message_retention_seconds  = 345600
   visibility_timeout_seconds = 900
-  receive_wait_time_seconds = 0
+  receive_wait_time_seconds  = 0
 }
 
 data "aws_iam_policy_document" "omni_bio_rad_send_order_events_queue_policy" {
@@ -27,7 +27,8 @@ data "aws_iam_policy_document" "omni_bio_rad_send_order_events_queue_policy" {
       variable = "aws:SourceArn"
       values = [
         "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-shipment-milestone-${var.env}",
-        "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-apar-failure-${var.env}"
+        "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-apar-failure-${var.env}",
+        "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-dw-shipment-location-updates-${var.env}"
       ]
     }
   }
@@ -48,4 +49,19 @@ resource "aws_sns_topic_subscription" "omni_apar_failure_stream_sns_subscription
   topic_arn = "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-apar-failure-${var.env}"
   protocol  = "sqs"
   endpoint  = aws_sqs_queue.omni_bio_rad_send_order_events_sqs.arn
+}
+
+resource "aws_sns_topic_subscription" "omni_shipment_location_updates_sns_subscription" {
+  topic_arn = "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-dw-shipment-location-updates-${var.env}"
+  protocol  = "sqs"
+  endpoint  = aws_sqs_queue.omni_bio_rad_send_order_events_sqs.arn
+
+  filter_policy = jsonencode(
+    {
+      BillNo = [
+        "8061",
+        "8062",
+      ]
+    }
+  )
 }
