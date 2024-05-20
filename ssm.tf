@@ -166,17 +166,17 @@ resource "aws_ssm_parameter" "omni-send-order-events-sqs-arn" {
   }
 }
 
-resource "aws_ssm_parameter" "omni-send-order-events-sqs-url" {
-  name  = "/omni/${var.env}/bio-rad/send-order-events/sqs.url"
-  type  = "String"
-  value = aws_sqs_queue.omni_bio_rad_send_order_events_sqs.url
+# resource "aws_ssm_parameter" "omni-send-order-events-sqs-url" {
+#   name  = "/omni/${var.env}/bio-rad/send-order-events/sqs.url"
+#   type  = "String"
+#   value = aws_sqs_queue.omni_bio_rad_send_order_events_sqs.url
 
-  tags = {
-    Application = var.application
-    CreatedBy   = var.created_by
-    Environment = var.env
-  }
-}
+#   tags = {
+#     Application = var.application
+#     CreatedBy   = var.created_by
+#     Environment = var.env
+#   }
+# }
 
 resource "aws_ssm_parameter" "omni-send-order-events-bill-to-number" {
   name  = "/omni/${var.env}/bio-rad/bill-to/numbers"
