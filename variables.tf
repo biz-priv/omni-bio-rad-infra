@@ -82,3 +82,8 @@ variable "omni_bio_rad_bill_to_numbers" {
   type     = string
   nullable = false
 }
+
+variable "lbn_send_order_events_endpoint" {
+  type     = string
+  nullable = false
+}

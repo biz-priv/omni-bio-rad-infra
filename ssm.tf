@@ -189,3 +189,15 @@ resource "aws_ssm_parameter" "omni-send-order-events-bill-to-number" {
     Environment = var.env
   }
 }
+
+resource "aws_ssm_parameter" "omni-bio-rad-lbn-send-order-events-endpoint" {
+  name  = "/omni/${var.env}/bio-rad/lbn-send-order-events-endpoint"
+  type  = "String"
+  value = var.lbn_send_order_events_endpoint
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
