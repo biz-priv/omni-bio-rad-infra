@@ -16,3 +16,4 @@ omni_wt_add_document_api_url                  = "https://wttest.omnilogistics.co
 omni_wt_create_shipment_api_url               = "https://wttest.omnilogistics.com/WTKServices/AirtrakShipment.asmx"
 omni_bio_rad_bill_to_numbers                  = "8061,8062"
 lbn_send_order_events_endpoint                = "https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/http/v1/tracking/events/OrderEvents/"
+lbn_send_billing_invoice_endpoint             = "https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1/LogisticsInvoice"
