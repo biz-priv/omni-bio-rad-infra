@@ -166,18 +166,6 @@ resource "aws_ssm_parameter" "omni-send-order-events-sqs-arn" {
   }
 }
 
-# resource "aws_ssm_parameter" "omni-send-order-events-sqs-url" {
-#   name  = "/omni/${var.env}/bio-rad/send-order-events/sqs.url"
-#   type  = "String"
-#   value = aws_sqs_queue.omni_bio_rad_send_order_events_sqs.url
-
-#   tags = {
-#     Application = var.application
-#     CreatedBy   = var.created_by
-#     Environment = var.env
-#   }
-# }
-
 resource "aws_ssm_parameter" "omni-send-order-events-bill-to-number" {
   name  = "/omni/${var.env}/bio-rad/bill-to/numbers"
   type  = "String"
@@ -194,6 +182,30 @@ resource "aws_ssm_parameter" "omni-bio-rad-lbn-send-order-events-endpoint" {
   name  = "/omni/${var.env}/bio-rad/lbn-send-order-events-endpoint"
   type  = "String"
   value = var.lbn_send_order_events_endpoint
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-send-billing-invoice-sqs-arn" {
+  name  = "/omni/${var.env}/bio-rad/send-billing-invoice/sqs.arn"
+  type  = "String"
+  value = aws_sqs_queue.omni_bio_rad_send_billing_invoice_sqs.arn
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-bio-rad-lbn-send-billing-invoice-endpoint" {
+  name  = "/omni/${var.env}/bio-rad/lbn-send-billing-invoice-endpoint"
+  type  = "String"
+  value = var.lbn_send_billing_invoice_endpoint
 
   tags = {
     Application = var.application
