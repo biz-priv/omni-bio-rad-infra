@@ -104,3 +104,9 @@ resource "aws_sqs_queue_policy" "omni_bio_rad_send_billing_invoice_queue_policy"
   queue_url = aws_sqs_queue.omni_bio_rad_send_billing_invoice_sqs.id
   policy    = data.aws_iam_policy_document.omni_bio_rad_send_billing_invoice_queue_policy.json
 }
+
+resource "aws_sns_topic_subscription" "omni_shipment_apar_billing_invoice_stream_sns_subscription" {
+  topic_arn = "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-shipment-apar-${var.env}"
+  protocol  = "sqs"
+  endpoint  = aws_sqs_queue.omni_bio_rad_send_billing_invoice_sqs.arn
+}
