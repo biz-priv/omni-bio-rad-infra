@@ -68,8 +68,11 @@ resource "aws_sns_topic_subscription" "omni_shipment_file_stream_sns_subscriptio
         "HCPOD",
         "POD",
         "HAWB"
-      ]
-    }
+      ],
+      "CustomerAccess" : [
+        "Y"
+      ],
+    },
   )
 }
 
