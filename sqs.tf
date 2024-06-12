@@ -27,6 +27,7 @@ data "aws_iam_policy_document" "omni_bio_rad_send_order_events_queue_policy" {
       variable = "aws:SourceArn"
       values = [
         "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-shipment-milestone-${var.env}",
+        "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-shipment-file-${var.env}",
         "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-apar-failure-${var.env}",
         "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-dw-shipment-location-updates-${var.env}"
       ]
