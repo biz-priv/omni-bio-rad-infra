@@ -43,6 +43,34 @@ resource "aws_sns_topic_subscription" "omni_shipment_milestone_stream_sns_subscr
   topic_arn = "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-shipment-milestone-${var.env}"
   protocol  = "sqs"
   endpoint  = aws_sqs_queue.omni_bio_rad_send_order_events_sqs.arn
+
+  filter_policy = jsonencode(
+    {
+      FK_OrderStatusId = [
+        "PUP",
+        "TTC",
+        "DEL",
+        "SRS",
+        "OFD"
+      ]
+    }
+  )
+}
+
+resource "aws_sns_topic_subscription" "omni_shipment_file_stream_sns_subscription" {
+  topic_arn = "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-wt-rt-shipment-file-${var.env}"
+  protocol  = "sqs"
+  endpoint  = aws_sqs_queue.omni_bio_rad_send_order_events_sqs.arn
+
+  filter_policy = jsonencode(
+    {
+      "FK_DocType" : [
+        "HCPOD",
+        "POD",
+        "HAWB"
+      ]
+    }
+  )
 }
 
 resource "aws_sns_topic_subscription" "omni_apar_failure_stream_sns_subscription" {
