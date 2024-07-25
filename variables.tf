@@ -24,7 +24,7 @@ variable "application" {
 }
 
 variable "omni_bio_rad_notification_emails" {
-  type     = list(string)
+  type     = string
   nullable = false
 }
 
@@ -49,11 +49,6 @@ variable "lbn_token_endpoint_request_username" {
 }
 
 variable "lbn_token_endpoint_request_password" {
-  type     = string
-  nullable = false
-}
-
-variable "lbn_token_endpoint_request_authorization" {
   type     = string
   nullable = false
 }
