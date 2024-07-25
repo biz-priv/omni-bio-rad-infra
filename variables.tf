@@ -53,11 +53,6 @@ variable "lbn_token_endpoint_request_password" {
   nullable = false
 }
 
-variable "lbn_token_endpoint_request_authorization" {
-  type     = string
-  nullable = false
-}
-
 variable "update_source_db_endpoint" {
   type     = string
   nullable = false

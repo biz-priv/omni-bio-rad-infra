@@ -10,18 +10,6 @@ resource "aws_ssm_parameter" "omni-bio-rad-logs-table" {
   }
 }
 
-resource "aws_ssm_parameter" "omni-bio-rad-notification-sns-arn" {
-  name  = "/omni/${var.env}/bio-rad/error-notification/sns/arn"
-  type  = "String"
-  value = aws_sns_topic.omni-bio-rad-error-notification.arn
-
-  tags = {
-    Application = var.application
-    CreatedBy   = var.created_by
-    Environment = var.env
-  }
-}
-
 resource "aws_ssm_parameter" "omni-bio-rad-api-key-arn" {
   name  = "/omni/${var.env}/bio-rad/api-key"
   type  = "SecureString"
@@ -74,18 +62,6 @@ resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-password" {
   name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/password"
   type  = "SecureString"
   value = var.lbn_token_endpoint_request_password
-
-  tags = {
-    Application = var.application
-    CreatedBy   = var.created_by
-    Environment = var.env
-  }
-}
-
-resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-authorization" {
-  name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/authorization"
-  type  = "SecureString"
-  value = var.lbn_token_endpoint_request_authorization
 
   tags = {
     Application = var.application
@@ -204,6 +180,18 @@ resource "aws_ssm_parameter" "omni-send-billing-invoice-sqs-arn" {
 
 resource "aws_ssm_parameter" "omni-bio-rad-lbn-send-billing-invoice-endpoint" {
   name  = "/omni/${var.env}/bio-rad/lbn-send-billing-invoice-endpoint"
+  type  = "String"
+  value = var.lbn_send_billing_invoice_endpoint
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-bio-rad-notification-email-list" {
+  name  = "/omni/${var.env}/bio-rad/notification-email-list"
   type  = "String"
   value = var.lbn_send_billing_invoice_endpoint
 
