@@ -193,7 +193,7 @@ resource "aws_ssm_parameter" "omni-bio-rad-lbn-send-billing-invoice-endpoint" {
 resource "aws_ssm_parameter" "omni-bio-rad-notification-email-list" {
   name  = "/omni/${var.env}/bio-rad/notification-email-list"
   type  = "String"
-  value = var.lbn_send_billing_invoice_endpoint
+  value = var.omni_bio_rad_notification_emails
 
   tags = {
     Application = var.application

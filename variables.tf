@@ -24,7 +24,7 @@ variable "application" {
 }
 
 variable "omni_bio_rad_notification_emails" {
-  type     = list(string)
+  type     = string
   nullable = false
 }
 
