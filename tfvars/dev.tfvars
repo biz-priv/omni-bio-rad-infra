@@ -9,6 +9,7 @@ lbn_send_endpoint                             = "https://l20398-iflmap.hcisbp.eu
 lbn_token_endpoint                            = "https://oauthasservices-a46089868.hana.ondemand.com/oauth2/api/v1/token?grant_type=client_credentials"
 lbn_token_endpoint_request_username           = "OMNILogisticsLBNLiveSpaceTest01"
 lbn_token_endpoint_request_password           = "+h297ZLk6=d$IBXR_74ku+$8*1==85!9$!s-lX"
+lbn_token_endpoint_request_authorization      = "Basic T01OSUxvZ2lzdGljc0xCTkxpdmVTcGFjZVRlc3QwMToraDI5N1pMazY9ZCRJQlhSXzc0a3UrJDgqMT09ODUhOSQhcy1sWA=="
 update_source_db_endpoint                     = "https://dev-api.omnilogistics.com/updateSourceDb"
 omni_wt_get_document_api_url                  = "https://websli.omnilogistics.com/wtTest/getwtdoc/v1/json/8495facb3355d4aab0197eadf1f484"
 omni_wt_add_document_api_url                  = "https://wttest.omnilogistics.com/WTKServices/shipments.asmx"

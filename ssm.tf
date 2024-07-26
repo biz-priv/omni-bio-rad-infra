@@ -70,6 +70,19 @@ resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-password" {
   }
 }
 
+
+resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-authorization" {
+  name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/authorization"
+  type  = "SecureString"
+  value = var.lbn_token_endpoint_request_authorization
+
+  tags = {
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
+}
+
 resource "aws_ssm_parameter" "omni-bio-rad-update-source-db-endpoint" {
   name  = "/omni/${var.env}/bio-rad/update-source-db-endpoint"
   type  = "String"
