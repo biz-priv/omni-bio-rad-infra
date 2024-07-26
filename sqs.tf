@@ -5,6 +5,13 @@ resource "aws_sqs_queue" "omni_bio_rad_send_order_events_sqs" {
   message_retention_seconds  = 345600
   visibility_timeout_seconds = 900
   receive_wait_time_seconds  = 0
+
+  tags = {
+    Name = "omni-bio-rad-send-order-events-${var.env}"
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
 }
 
 data "aws_iam_policy_document" "omni_bio_rad_send_order_events_queue_policy" {
@@ -102,6 +109,13 @@ resource "aws_sqs_queue" "omni_bio_rad_send_billing_invoice_sqs" {
   message_retention_seconds  = 345600
   visibility_timeout_seconds = 900
   receive_wait_time_seconds  = 0
+
+  tags = {
+    Name = "omni-bio-rad-send-billing-invoice-${var.env}"
+    Application = var.application
+    CreatedBy   = var.created_by
+    Environment = var.env
+  }
 }
 
 data "aws_iam_policy_document" "omni_bio_rad_send_billing_invoice_queue_policy" {

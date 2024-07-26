@@ -21,6 +21,7 @@ resource "aws_dynamodb_table" "omni-bio-rad-logs-table" {
   }
 
   tags = {
+    Name = "omni-bio-rad-logs-${var.env}"
     Application = var.application
     CreatedBy   = var.created_by
     Environment = var.env
