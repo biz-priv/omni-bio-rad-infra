@@ -87,3 +87,8 @@ variable "lbn_send_billing_invoice_endpoint" {
   type     = string
   nullable = false
 }
+
+variable "lbn_token_endpoint_request_authorization" {
+  type     = string
+  nullable = false
+}
