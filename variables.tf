@@ -43,12 +43,12 @@ variable "lbn_token_endpoint" {
   nullable = false
 }
 
-variable "lbn_token_endpoint_request_username" {
+variable "lbn_token_endpoint_request_client_id" {
   type     = string
   nullable = false
 }
 
-variable "lbn_token_endpoint_request_password" {
+variable "lbn_token_endpoint_request_client_secret" {
   type     = string
   nullable = false
 }
@@ -84,11 +84,6 @@ variable "lbn_send_order_events_endpoint" {
 }
 
 variable "lbn_send_billing_invoice_endpoint" {
-  type     = string
-  nullable = false
-}
-
-variable "lbn_token_endpoint_request_authorization" {
   type     = string
   nullable = false
 }
