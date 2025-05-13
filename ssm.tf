@@ -50,10 +50,10 @@ resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint" {
   }
 }
 
-resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-username" {
-  name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/username"
+resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-client-id" {
+  name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/client-id"
   type  = "String"
-  value = var.lbn_token_endpoint_request_username
+  value = var.lbn_token_endpoint_request_client_id
 
   tags = {
     Name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/username"
@@ -63,10 +63,10 @@ resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-username" {
   }
 }
 
-resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-password" {
-  name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/password"
+resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-client-secret" {
+  name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/client-secret"
   type  = "SecureString"
-  value = var.lbn_token_endpoint_request_password
+  value = var.lbn_token_endpoint_request_client_secret
 
   tags = {
     Name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/password"
@@ -76,19 +76,6 @@ resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-password" {
   }
 }
 
-
-resource "aws_ssm_parameter" "omni-bio-rad-lbn-token-endpoint-authorization" {
-  name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/authorization"
-  type  = "SecureString"
-  value = var.lbn_token_endpoint_request_authorization
-
-  tags = {
-    Name  = "/omni/${var.env}/bio-rad/lbn-token-endpoint/authorization"
-    Application = var.application
-    CreatedBy   = var.created_by
-    Environment = var.env
-  }
-}
 
 resource "aws_ssm_parameter" "omni-bio-rad-update-source-db-endpoint" {
   name  = "/omni/${var.env}/bio-rad/update-source-db-endpoint"
